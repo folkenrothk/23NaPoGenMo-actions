@@ -1,0 +1,17 @@
+name: 'NaPoGenMo-Folk'
+description: 'Acquires and runs the builder'
+inputs:
+  archive_dir:
+    description: 'Directory containing content data'
+    required: true
+    default: 'content'
+  theme_dir:
+    description: 'Directory containing the site theme data'
+    required: true
+    default: 'theme'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.archive_dir }}
+    - ${{ inputs.theme_dir }}
